@@ -3,7 +3,7 @@ message: "If you use these educational resources, cite the repository and the co
 title: "Bicep for Everyone"
 type: software
 authors:
-  - family-names: "Bicep for Everyone contributors"
+  - name: "Bicep for Everyone contributors"
 repository-code: "https://github.com/Cloud2BR-MSFTLearningHub/Bicep-For-Everyone"
 url: "https://cloud2br-msftlearninghub.github.io/Bicep-For-Everyone/"
 license: GPL-3.0

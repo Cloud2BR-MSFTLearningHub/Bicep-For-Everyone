@@ -177,8 +177,8 @@ MODULES = [
 
 def build_files():
     files = {}
-    catalog = ["# Bicep module catalog\n",
-               "Choose by service and complexity. Every source view below includes the canonical README and Bicep file at build time.\n",
+    catalog = ["# Bicep module catalog\n\n",
+               "Choose by service and complexity. Every source view below includes the canonical README and Bicep file at build time.\n\n",
                "| Example | Level | Category |\n| --- | --- | --- |\n"]
     for path, title, level, purpose, prerequisites, costs, notes in MODULES:
         source = ROOT / path / "main.bicep"
@@ -307,7 +307,7 @@ and [Microsoft Bicep resource reference](https://learn.microsoft.com/azure/templ
             f'## Complete Bicep source\n\n```bicep title="{path}/main.bicep"\n'
             f'--8<-- "{path}/main.bicep"\n```\n'
         )
-    files[Path("docs/catalog.md")] = "\n".join(catalog)
+    files[Path("docs/catalog.md")] = "".join(catalog)
     return files
 
 
