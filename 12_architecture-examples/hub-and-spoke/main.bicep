@@ -12,11 +12,12 @@ module spoke '../../0_core-infrastructure/virtual-network/main.bicep' = {
   name: 'spoke'
   params: { name: '${prefix}-spoke', location: location, addressPrefixes: ['10.1.0.0/16'] }
 }
-resource hubNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' existing = { name: hub.outputs.name }
-resource spokeNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' existing = { name: spoke.outputs.name }
+resource hubNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' existing = { name: '${prefix}-hub' }
+resource spokeNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' existing = { name: '${prefix}-spoke' }
 resource outbound 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2024-05-01' = {
   parent: hubNetwork
   name: 'to-spoke'
+  dependsOn: [hub]
   properties: {
     remoteVirtualNetwork: { id: spoke.outputs.id }
     allowVirtualNetworkAccess: true
@@ -28,6 +29,7 @@ resource outbound 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2024
 resource inbound 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2024-05-01' = {
   parent: spokeNetwork
   name: 'to-hub'
+  dependsOn: [spoke]
   properties: {
     remoteVirtualNetwork: { id: hub.outputs.id }
     allowVirtualNetworkAccess: true

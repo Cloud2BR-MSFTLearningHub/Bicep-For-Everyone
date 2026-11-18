@@ -34,6 +34,7 @@ Never use example IDs as real principal/resource IDs.
 | `location` | `string` | Optional; see source default |
 | `subnetId` | `string` | Required |
 | `sshPublicKey` | `string` | Required |
+| `administrator` | `string` | Optional; see source default |
 | `capacity` | `int` | Optional; see source default |
 
 Descriptions and defaults live beside each declaration in the canonical source.

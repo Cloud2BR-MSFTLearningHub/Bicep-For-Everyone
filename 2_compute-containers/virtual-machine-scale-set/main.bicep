@@ -6,6 +6,8 @@ param location string = resourceGroup().location
 param subnetId string
 @description('SSH public key.')
 param sshPublicKey string
+@description('Linux administrator username.')
+param administrator string = 'azureuser'
 @description('Instance count.')
 @minValue(0)
 @maxValue(10)
@@ -23,10 +25,10 @@ resource scaleSet 'Microsoft.Compute/virtualMachineScaleSets@2024-07-01' = {
     virtualMachineProfile: {
       osProfile: {
         computerNamePrefix: 'learn'
-        adminUsername: 'azureuser'
+        adminUsername: administrator
         linuxConfiguration: {
           disablePasswordAuthentication: true
-          ssh: { publicKeys: [{ path: '/home/azureuser/.ssh/authorized_keys', keyData: sshPublicKey }] }
+          ssh: { publicKeys: [{ path: '/home/${administrator}/.ssh/authorized_keys', keyData: sshPublicKey }] }
         }
       }
       storageProfile: {
