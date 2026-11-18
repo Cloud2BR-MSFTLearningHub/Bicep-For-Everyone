@@ -1,0 +1,15 @@
+name: Lesson or module proposal
+description: Suggest a focused educational improvement.
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Learning objective and audience
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: Azure services, prerequisites, costs, and safety boundaries
+    validations:
+      required: true

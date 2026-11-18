@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a source or documentation problem without sharing secrets.
+body:
+  - type: input
+    id: example
+    attributes:
+      label: Module or page
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction and expected result
+      description: Include compiler version and sanitized error. Distinguish offline compilation from a live Azure test.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Do not include credentials, private keys, real subscription IDs, customer data, or sensitive logs.
+    validations:
+      required: true

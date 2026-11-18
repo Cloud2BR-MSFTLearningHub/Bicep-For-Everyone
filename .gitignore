@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+site/
+build/
+*.local.bicepparam
+*.local.parameters.json
+.DS_Store

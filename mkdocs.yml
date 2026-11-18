@@ -1,0 +1,93 @@
+site_name: Bicep for Everyone
+site_description: Practical Azure Bicep lessons, reusable modules, and architecture labs.
+site_url: https://cloud2br-msftlearninghub.github.io/Bicep-For-Everyone/
+repo_url: https://github.com/Cloud2BR-MSFTLearningHub/Bicep-For-Everyone
+repo_name: Cloud2BR-MSFTLearningHub/Bicep-For-Everyone
+edit_uri: edit/main/docs/
+use_directory_urls: false
+strict: true
+exclude_docs: |
+  /overrides/
+theme:
+  name: material
+  custom_dir: docs/overrides
+  font: false
+  logo: assets/cloud2br-logo.png
+  favicon: assets/cloud2br-logo.png
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark theme
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light theme
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+plugins:
+  - search
+extra:
+  generator: false
+extra_css:
+  - styles.css
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
+validation:
+  nav:
+    omitted_files: ignore
+  links:
+    not_found: warn
+    anchors: warn
+nav:
+  - Home:
+      - Welcome: index.md
+      - Learning paths: learning-paths.md
+      - Getting started: getting-started.md
+  - Learn:
+      - Fundamentals: fundamentals.md
+      - Parameters and expressions: parameters-expressions.md
+      - Resources and modules: resources-modules.md
+      - Validate and deploy: deployment.md
+      - Security and costs: security-costs.md
+  - Azure services:
+      - Module catalog: catalog.md
+      - Service selection: services.md
+  - Build:
+      - Architecture labs: architectures.md
+      - Environment project: projects.md
+  - Reference:
+      - Cheat sheet: cheat-sheet.md
+      - Troubleshooting: troubleshooting.md
+      - Official resources: resources.md
+  - Community:
+      - Contributing: contributing.md
+      - Code of conduct: code-of-conduct.md
+      - Maintenance: maintaining.md
